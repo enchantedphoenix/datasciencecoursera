@@ -1,10 +1,12 @@
 corr <- function(directory, threshold = 0) {
-  files <- dir(directory, full.names=TRUE)
-
-  ## 'threshold' is a numeric vector of length 1 indicating the
-  ## number of completely observed observations (on all
-  ## variables) required to compute the correlation between
-  ## nitrate and sulfate; the default is 0
-  
-  ## Return a numeric vector of correlations
-}
+  empty <- numeric()
+  files.list <- list.files(directory, full.names=TRUE)
+  df <- lapply(files.list, read.csv)
+  for (i in files.list){
+    complete_cases <- complete("specdata", i) # count the number of complete cases in the file
+  }
+  if (complete_cases > threshold) {# if the number is greater than the threshold
+    correlation <- cor(df$sulfate, df$nitrate, use = "complete.obs") # compute the correlation of the sulfate and nitrate columns
+    empty <- c(empty, correlation) # append that correlation to the numeric vector
+    print (empty)
+  }
