@@ -9,10 +9,10 @@ corr <- function (directory, threshold = 0){
   complete.cases.files <- complete("specdata", 1:332)
   for (nobs in complete.cases.files["nobs"]) {
     nobs.above.threshold <- nobs > threshold
-  }
-  if (nobs.above.threshold == TRUE) {
-    correlation <- cor(csvs$sulfate, csvs$nitrate, use = "complete.obs")
-    rbind(numeric.vector, correlation)
+      if (nobs.above.threshold[ ] == TRUE) {
+        correlation <- cor(csvs$sulfate, csvs$nitrate, use = "complete.obs")
+        rbind(numeric.vector, correlation)
+      }
   }
   print(numeric.vector)
 }
